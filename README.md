@@ -6,6 +6,14 @@
 
 Alternative address: https://chat-bilibili-video.vercel.app
 
+## NLP Project
+
+### Deploy
+
+- Use node 18
+- Run `npm install`
+- Run `npm run dev`
+
 ---
 
 ## 🤖 BibiGPT · 音视频内容一键总结 [b.jimmylv.cn](https://b.jimmylv.cn/)

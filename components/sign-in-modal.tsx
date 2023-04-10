@@ -4,7 +4,7 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
-import { useAnalytics } from '~/components/context/analytics'
+// import { useAnalytics } from '~/components/context/analytics'
 import Modal from '~/components/shared/modal'
 import { BASE_DOMAIN, CHECKOUT_URL, LOGIN_LIMIT_COUNT } from '~/utils/constants'
 import { getRedirectURL } from '~/utils/getRedirectUrl'
@@ -18,7 +18,7 @@ const SignInModal = ({
 }) => {
   const supabaseClient = useSupabaseClient()
   const redirectURL = getRedirectURL()
-  const { analytics } = useAnalytics()
+  // const { analytics } = useAnalytics()
 
   return (
     <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
@@ -33,7 +33,7 @@ const SignInModal = ({
             <a
               className="relative text-pink-400 hover:underline"
               href={CHECKOUT_URL}
-              onClick={() => analytics.track('ShopLink Clicked')}
+              onClick={() => null /*analytics.track('ShopLink Clicked')*/}
             >
               点击购买
             </a>

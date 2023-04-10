@@ -1,9 +1,9 @@
-import { useAnalytics } from '~/components/context/analytics'
+// import { useAnalytics } from '~/components/context/analytics'
 import SquigglyLines from '../components/SquigglyLines'
 import { CHECKOUT_URL, RATE_LIMIT_COUNT } from '~/utils/constants'
 
 export default () => {
-  const { analytics } = useAnalytics()
+  // const { analytics } = useAnalytics()
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default () => {
           <a
             className="relative text-pink-400 hover:underline"
             href={CHECKOUT_URL}
-            onClick={() => analytics.track('ShopLink Clicked')}
+            onClick={() => null /*analytics.track('ShopLink Clicked')*/}
           >
             点击购买
           </a>

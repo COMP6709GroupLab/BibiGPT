@@ -1,9 +1,9 @@
 import React from 'react'
-import { useAnalytics } from '~/components/context/analytics'
+// import { useAnalytics } from '~/components/context/analytics'
 import { CHECKOUT_URL, RATE_LIMIT_COUNT } from '~/utils/constants'
 
 export function UserKeyInput(props: { value: string | undefined; onChange: (e: any) => void }) {
-  const { analytics } = useAnalytics()
+  // const { analytics } = useAnalytics()
 
   return (
     <details>
@@ -30,7 +30,7 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
             href={CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => analytics.track('ShopLink Clicked')}
+            onClick={() => null /*analytics.track('ShopLink Clicked')*/}
           >
             「购买次数」
           </a>

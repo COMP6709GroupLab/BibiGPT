@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import useFormPersist from 'react-hook-form-persist'
-import { useAnalytics } from '~/components/context/analytics'
+// import { useAnalytics } from '~/components/context/analytics'
 import { PromptOptions } from '~/components/PromptOptions'
 import { SubmitButton } from '~/components/SubmitButton'
 import { SummaryResult } from '~/components/SummaryResult'
@@ -59,7 +59,7 @@ export const Home: NextPage<{
   const [userKey, setUserKey] = useLocalStorage<string>('user-openai-apikey')
   const { loading, summary, resetSummary, summarize } = useSummarize(showSingIn, getValues('enableStream'))
   const { toast } = useToast()
-  const { analytics } = useAnalytics()
+  // const { analytics } = useAnalytics()
 
   useFormPersist('video-summary-config-storage', {
     watch,
@@ -146,7 +146,7 @@ export const Home: NextPage<{
   const onFormSubmit: SubmitHandler<VideoConfigSchema> = async (data) => {
     // e.preventDefault();
     await generateSummary(currentVideoUrl)
-    analytics.track('GenerateButton Clicked')
+    // analytics.track('GenerateButton Clicked')
   }
   const handleApiKeyChange = (e: any) => {
     setUserKey(e.target.value)

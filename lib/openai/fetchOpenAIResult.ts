@@ -1,9 +1,9 @@
-import { Redis } from '@upstash/redis'
+// import { Redis } from '@upstash/redis'
 import { createParser, ParsedEvent, ReconnectInterval } from 'eventsource-parser'
 import { trimOpenAiResult } from '~/lib/openai/trimOpenAiResult'
 import { VideoConfig } from '~/lib/types'
 import { isDev } from '~/utils/env'
-import { getCacheId } from '~/utils/getCacheId'
+// import { getCacheId } from '~/utils/getCacheId'
 
 export enum ChatGPTAgent {
   user = 'user',
@@ -47,15 +47,15 @@ export async function fetchOpenAIResult(payload: OpenAIStreamPayload, apiKey: st
     throw new Error(`OpenAI API Error [${res.statusText}]: ${errorJson.error?.message}`)
   }
 
-  const redis = Redis.fromEnv()
-  const cacheId = getCacheId(videoConfig)
+  // const redis = Redis.fromEnv()
+  // const cacheId = getCacheId(videoConfig)
 
   if (!payload.stream) {
     const result = await res.json()
     const betterResult = trimOpenAiResult(result)
 
-    const data = await redis.set(cacheId, betterResult)
-    console.info(`video ${cacheId} cached:`, data)
+    // const data = await redis.set(cacheId, betterResult)
+    // console.info(`video ${cacheId} cached:`, data)
     isDev && console.log('========betterResult========', betterResult)
 
     return betterResult
@@ -73,8 +73,8 @@ export async function fetchOpenAIResult(payload: OpenAIStreamPayload, apiKey: st
           if (data === '[DONE]') {
             // active
             controller.close()
-            const data = await redis.set(cacheId, tempData)
-            console.info(`video ${cacheId} cached:`, data)
+            // const data = await redis.set(cacheId, tempData)
+            // console.info(`video ${cacheId} cached:`, data)
             isDev && console.log('========betterResult after streamed========', tempData)
             return
           }

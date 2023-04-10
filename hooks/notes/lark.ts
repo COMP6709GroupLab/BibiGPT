@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { useAnalytics } from '~/components/context/analytics'
+// import { useAnalytics } from '~/components/context/analytics'
 import { useToast } from '~/hooks/use-toast'
 
 export default function useSaveToLark(note: string, video: string, webhook: string) {
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
-  const { analytics } = useAnalytics()
+  // const { analytics } = useAnalytics()
 
   const save = async () => {
     const larkCardData = {
@@ -79,7 +79,7 @@ export default function useSaveToLark(note: string, video: string, webhook: stri
       })
     }
     setLoading(false)
-    analytics.track('SaveLarkButton Clicked')
+    // analytics.track('SaveLarkButton Clicked')
   }
   return { save, loading }
 }
